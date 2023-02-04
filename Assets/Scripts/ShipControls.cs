@@ -8,7 +8,7 @@ public class ShipControls : MonoBehaviour
     public Rigidbody2D rb2D;
     bool forceOn = false;
     public float forceAmount = 10.0f;
-    public float torquDirection = 0.0f;
+    float torquDirection = 0.0f;
     public float torqueAmount = 0.5f;
 
 
@@ -24,7 +24,8 @@ public class ShipControls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            transform.RotateAround(transform.position, new Vector3(0, 0, 1), 180.0f);
+            //transform.RotateAround(transform.position, new Vector3(0, 0, 1), 180.0f);
+            Debug.Log("CAN'T SLOW DOWN!!!");
         }
 
         if (Input.GetKey(KeyCode.A))
