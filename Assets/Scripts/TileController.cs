@@ -356,9 +356,9 @@ public class TileController : MonoBehaviour
 
         for (int i = 0; i < tiles.Count; i++)
         {
-            Debug.Log(tilePositions[i].position);
+            //Debug.Log(tilePositions[i].position);
             tiles[i].transform.position = tilePositions[i].position;
-            Debug.Log(tiles[i].transform.position);
+            //Debug.Log(tiles[i].transform.position);
             tiles[i].SetActive(false);
         }
         
