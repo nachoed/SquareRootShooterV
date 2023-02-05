@@ -288,21 +288,63 @@ public class TileController : MonoBehaviour
                 break;
             case 1:
                 tiles[8 - 1].SetActive(true);
+                tiles[8 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[8 - 1].GetComponent <BoxCollider2D>().enabled = false;
+                tiles[8 - 1].transform.GetChild(0).gameObject.SetActive(true);
                 break;
             case 2:
                 tiles[8 - 1].SetActive(true);
+                tiles[8 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[8 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[8 - 1].transform.GetChild(0).gameObject.SetActive(true);
+
                 tiles[18 - 1].SetActive(true);
+                tiles[18 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[18 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[18 - 1].transform.GetChild(0).gameObject.SetActive(true);
                 break;
             case 3:
                 tiles[8 - 1].SetActive(true);
+                tiles[8 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[8 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[8 - 1].transform.GetChild(0).gameObject.SetActive(true);
+
                 tiles[12 - 1].SetActive(true);
+                tiles[12 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[12 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[12 - 1].transform.GetChild(0).gameObject.SetActive(true);
+
                 tiles[14 - 1].SetActive(true);
+                tiles[14 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[14 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[14 - 1].transform.GetChild(0).gameObject.SetActive(true);
+
+                //Remove 18                
+                tiles[18 - 1].GetComponent<SpriteRenderer>().enabled = true;
+                tiles[18 - 1].GetComponent<BoxCollider2D>().enabled = true;
+                tiles[18 - 1].transform.GetChild(0).gameObject.SetActive(false);
+                tiles[18 - 1].SetActive(false);
                 break;
             case 4:
                 tiles[8 - 1].SetActive(true);
+                tiles[8 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[8 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[8 - 1].transform.GetChild(0).gameObject.SetActive(true);
+
                 tiles[12 - 1].SetActive(true);
+                tiles[12 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[12 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[12 - 1].transform.GetChild(0).gameObject.SetActive(true);
+
                 tiles[14 - 1].SetActive(true);
+                tiles[14 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[14 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[14 - 1].transform.GetChild(0).gameObject.SetActive(true);
+
                 tiles[18 - 1].SetActive(true);
+                tiles[18 - 1].GetComponent<SpriteRenderer>().enabled = false;
+                tiles[18 - 1].GetComponent<BoxCollider2D>().enabled = false;
+                tiles[18 - 1].transform.GetChild(0).gameObject.SetActive(true);
                 break;
             default:
                 break;

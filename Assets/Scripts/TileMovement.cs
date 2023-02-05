@@ -11,6 +11,8 @@ public class TileMovement : MonoBehaviour
     Vector3 targetPosition;
     public float speed;
     //public Collider2D collider2D;
+    public GameObject player;
+    public bool isPermanent;
 
     public void MoveToShipCenter()
     {
@@ -63,7 +65,16 @@ public class TileMovement : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             Destroy(collision.gameObject);
-            this.gameObject.SetActive(false);
+            if (isPermanent)
+            {
+                player.SetActive(false);
+                //GAME OVER
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+            
         }
     }
 

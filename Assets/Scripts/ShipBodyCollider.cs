@@ -19,6 +19,7 @@ public class ShipBodyCollider : MonoBehaviour
         {
             Destroy(collision.gameObject);
             transform.parent.gameObject.SetActive(false);
+            //GAME OVER
         }
     }
 }
