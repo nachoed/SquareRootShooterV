@@ -124,10 +124,10 @@ TextureImporter:
       name: BG_Particles_0
       rect:
         serializedVersion: 2
-        x: 186
-        y: 325
-        width: 230
-        height: 374
+        x: 12
+        y: 225
+        width: 353
+        height: 574
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,10 +145,10 @@ TextureImporter:
       name: BG_Particles_1
       rect:
         serializedVersion: 2
-        x: 502
-        y: 356
-        width: 336
-        height: 310
+        x: 496
+        y: 272
+        width: 516
+        height: 477
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

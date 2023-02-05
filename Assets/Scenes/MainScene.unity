@@ -516,6 +516,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8533836915797764670, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533836915797764670, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533836915797764670, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
+      propertyPath: UVModule.sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533836915797764670, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533836915797764670, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
+      propertyPath: UVModule.sprites.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 3177815718313007292, guid: 0dff52ca0b473f9498a4d23bb9d41f61, type: 3}
     - target: {fileID: 8533836915797764672, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -523,6 +543,10 @@ PrefabInstance:
     - target: {fileID: 8533836915797764672, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
       propertyPath: m_LocalScale.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533836915797764672, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8533836914851951293, guid: 325a3400b4639be488e440aeba8f7bfd, type: 3}
