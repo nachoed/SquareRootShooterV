@@ -346,20 +346,6 @@ public class TileController : MonoBehaviour
                 break;
         }
 
-        //for (int i = 0; i < tiles.Count; i++)
-        //{
-        //    if (!tiles[i].activeSelf)
-        //    {
-        //        tiles[i].SetActive(true);
-        //        //tiles[i].transform.position = tilePositions[i].transform.position;
-        //        Debug.Log("Setting " + tiles[i] + " to active");
-        //        break;
-        //    }
-        //    else
-        //    {
-        //        Debug.Log(tiles[i] + " is already active");
-        //    }
-        //}
     }
 
     public void ReactivateTiles()

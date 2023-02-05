@@ -13,6 +13,7 @@ public class SpawnObjects : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnTimer());
+        SpawnObstacles();
     }
 
     public void SpawnPickUpTiles()
@@ -23,8 +24,12 @@ public class SpawnObjects : MonoBehaviour
 
     public void SpawnObstacles()
     {
-        Vector2 spawnPoistion = new Vector2(Random.Range(minSpawnPoistion.x, maxSpawnPoistion.x), Random.Range(minSpawnPoistion.y, maxSpawnPoistion.y));
-        Instantiate(obstacles, spawnPoistion, Quaternion.identity);
+        for (int i = 0; i < 9; i++)
+        {
+            Vector2 spawnPoistion = new Vector2(Random.Range(minSpawnPoistion.x, maxSpawnPoistion.x), Random.Range(minSpawnPoistion.y, maxSpawnPoistion.y));
+            Instantiate(obstacles, spawnPoistion, Quaternion.identity);
+        }
+        
     }
 
     IEnumerator SpawnTimer()
@@ -32,7 +37,7 @@ public class SpawnObjects : MonoBehaviour
         while (true)
         {
             SpawnPickUpTiles();
-            SpawnObstacles();
+            //SpawnObstacles();
             yield return new WaitForSeconds(waitTime);
         }
     }

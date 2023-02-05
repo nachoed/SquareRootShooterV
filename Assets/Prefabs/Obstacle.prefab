@@ -114,3 +114,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   distance: 10
+  splitTimer: 20
+  obstacle: {fileID: 7401278062881157920}
