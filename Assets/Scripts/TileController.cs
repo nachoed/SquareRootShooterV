@@ -8,8 +8,12 @@ public class TileController : MonoBehaviour
     public List<GameObject> tiles = new List<GameObject>();
     //public List<Vector3> tilePositions = new List<Vector3>();
     public List<Transform> tilePositions = new List<Transform>();
-    public int levelCounter = 0;
+    int levelCounter = 0;
     bool canLevelUp = false;
+    public AudioSource audioSource;
+    public AudioClip collectTile;
+    public AudioClip collapseShip;
+    
 
     void Start()
     {
@@ -39,6 +43,9 @@ public class TileController : MonoBehaviour
 
     public void AddTileToShip()
     {
+
+        audioSource.clip = collectTile;
+        audioSource.Play();
 
         switch (levelCounter)
         {
@@ -435,6 +442,10 @@ public class TileController : MonoBehaviour
     IEnumerator LevelUpInTime()
     {
         yield return new WaitForSeconds(0.3f);
+
+        audioSource.clip = collapseShip;
+        audioSource.Play();
+
         foreach (var go in tiles)
         {
             go.GetComponent<TileMovement>().MoveToShipCenter();

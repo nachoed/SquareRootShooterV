@@ -8,6 +8,9 @@ public class MenuButtons : MonoBehaviour
 
     public GameObject buttons;
     public GameObject credits;
+    //public AudioSource audioSource;
+    //public AudioClip hoverMouse;
+    //public AudioClip pressedMouse;
 
    public void PlayButton()
     {
@@ -25,5 +28,17 @@ public class MenuButtons : MonoBehaviour
         buttons.SetActive(true);
         credits.SetActive(false);
     }
+
+    //public void PlayHoverSound()
+    //{
+    //    audioSource.clip = hoverMouse;
+    //    audioSource.Play();
+    //}
+
+    //public void PlayPressSound()
+    //{
+    //    audioSource.clip = pressedMouse;
+    //    audioSource.Play();
+    //}
 
 }

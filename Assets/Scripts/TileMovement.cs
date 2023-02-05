@@ -13,6 +13,9 @@ public class TileMovement : MonoBehaviour
     //public Collider2D collider2D;
     public GameObject player;
     public bool isPermanent;
+    public AudioSource audioSource;
+    public AudioClip destroyTile;
+    public AudioClip destroyShip;
 
     public void MoveToShipCenter()
     {
@@ -29,7 +32,7 @@ public class TileMovement : MonoBehaviour
         while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
         {
             yield return null;
-            Debug.Log("In Loop");
+            //Debug.Log("In Loop");
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
 
@@ -67,11 +70,17 @@ public class TileMovement : MonoBehaviour
             Destroy(collision.gameObject);
             if (isPermanent)
             {
+                audioSource.clip = destroyShip;
+                audioSource.Play();
+
                 player.SetActive(false);
                 //GAME OVER
             }
             else
             {
+                audioSource.clip = destroyTile;
+                audioSource.Play();
+
                 this.gameObject.SetActive(false);
             }
             

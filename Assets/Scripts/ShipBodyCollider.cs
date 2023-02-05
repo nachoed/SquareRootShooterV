@@ -6,6 +6,8 @@ public class ShipBodyCollider : MonoBehaviour
 {
     
     public TileController tileController;
+    public AudioSource audioSource;
+    public AudioClip destroyShip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +20,11 @@ public class ShipBodyCollider : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             Destroy(collision.gameObject);
-            transform.parent.gameObject.SetActive(false);
+
+            audioSource.clip = destroyShip;
+            audioSource.Play();
+
+            gameObject.SetActive(false);
             //GAME OVER
         }
     }

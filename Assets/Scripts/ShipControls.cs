@@ -12,6 +12,8 @@ public class ShipControls : MonoBehaviour
     public float torqueAmount = 0.5f;
     public float minClampRange;
     public float maxClampRange;
+    public AudioSource audioSource;
+    public AudioClip thrust;
 
 
     void Start()
@@ -23,6 +25,12 @@ public class ShipControls : MonoBehaviour
     void Update()
     {
         forceOn = Input.GetKey(KeyCode.W);
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            audioSource.clip = thrust;
+            audioSource.Play();
+        }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
