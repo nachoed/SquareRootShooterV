@@ -57,8 +57,9 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, shipGO.transform.position) < distance)
-            transform.position = Vector3.MoveTowards(transform.position, shipGO.transform.position, speed * Time.deltaTime);
+        if(shipGO != null)
+            if (Vector3.Distance(transform.position, shipGO.transform.position) < distance)
+                transform.position = Vector3.MoveTowards(transform.position, shipGO.transform.position, speed * Time.deltaTime);
 
         //raycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, 4f);
         //raycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, 4f);
@@ -76,6 +77,19 @@ public class ObstacleController : MonoBehaviour
 
     }
 
+    public void MoveAway(Vector3 v3)
+    {
+        StartCoroutine(MoveAwayTimer(v3));
+    }
+
+    IEnumerator MoveAwayTimer(Vector3 v3)
+    {
+        
+        yield return null;
+        transform.position = Vector3.MoveTowards(transform.position, v3, -1 * speed * Time.deltaTime);
+        
+    }
+
     IEnumerator EnemySplit()
     {
         while (true)
@@ -85,6 +99,7 @@ public class ObstacleController : MonoBehaviour
             spawnPosition.y = transform.position.y + Random.Range(-1, +1);
             spawnPosition.x = transform.position.x + Random.Range(-1, +1);
             Instantiate(obstacle, spawnPosition, Quaternion.identity);
+            MoveAway(spawnPosition);
         }
         
     }

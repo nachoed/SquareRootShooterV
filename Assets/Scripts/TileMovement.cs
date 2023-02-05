@@ -70,8 +70,7 @@ public class TileMovement : MonoBehaviour
             Destroy(collision.gameObject);
             if (isPermanent)
             {
-                audioSource.clip = destroyShip;
-                audioSource.Play();
+                player.GetComponent<ShipBodyCollider>().GameOver();
 
                 player.SetActive(false);
                 //GAME OVER

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShipBodyCollider : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ShipBodyCollider : MonoBehaviour
     public TileController tileController;
     public AudioSource audioSource;
     public AudioClip destroyShip;
+    public GameObject destroyParticles;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,11 +23,22 @@ public class ShipBodyCollider : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
-            audioSource.clip = destroyShip;
-            audioSource.Play();
+            GameOver();
 
             gameObject.SetActive(false);
             //GAME OVER
         }
     }
+
+    public void GameOver()
+    {
+        audioSource.clip = destroyShip;
+        audioSource.Play();
+
+        Instantiate(destroyParticles, transform.position, Quaternion.identity);
+
+        transform.parent.gameObject.GetComponent<ShipControls>().LoadMenuScene();
+    }
+
+    
 }

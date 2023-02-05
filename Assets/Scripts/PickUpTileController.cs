@@ -18,7 +18,8 @@ public class PickUpTileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, shipGO.transform.position) < distance)
-            transform.position = Vector3.MoveTowards(transform.position, shipGO.transform.position, -1 * speed *Time.deltaTime);
+        if(shipGO != null)
+            if(Vector3.Distance(transform.position, shipGO.transform.position) < distance)
+                transform.position = Vector3.MoveTowards(transform.position, shipGO.transform.position, -1 * speed *Time.deltaTime);
     }
 }

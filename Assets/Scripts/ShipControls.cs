@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShipControls : MonoBehaviour
 {
@@ -102,5 +103,19 @@ public class ShipControls : MonoBehaviour
         v3.x = Mathf.Clamp(v3.x, minClampRange, maxClampRange);
         v3.y = Mathf.Clamp(v3.y, minClampRange, maxClampRange);
         transform.position = v3;
+    }
+
+    public void LoadMenuScene()
+    {
+        StartCoroutine(GameOverTimer());
+    }
+
+    IEnumerator GameOverTimer()
+    {
+
+        yield return new WaitForSeconds(2.2f);
+
+        SceneManager.LoadScene(0);
+
     }
 }
