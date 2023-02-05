@@ -37,7 +37,7 @@ public class TileController : MonoBehaviour
         }
     }
 
-    void AddTileToShip()
+    public void AddTileToShip()
     {
 
         switch (levelCounter)
@@ -55,6 +55,7 @@ public class TileController : MonoBehaviour
                 {
                     tiles[19 - 1].SetActive(true);
                     canLevelUp = true;
+                    StartCoroutine(LevelUpInTime());
                 }
                 
                 break;
@@ -87,6 +88,7 @@ public class TileController : MonoBehaviour
                 {
                     tiles[7 - 1].SetActive(true);
                     canLevelUp = true;
+                    StartCoroutine(LevelUpInTime());
                 }
                 break;
             case 2:
@@ -142,6 +144,7 @@ public class TileController : MonoBehaviour
                 {
                     tiles[25 - 1].SetActive(true);
                     canLevelUp = true;
+                    StartCoroutine(LevelUpInTime());
                 }
                 break;
             case 3:
@@ -239,6 +242,7 @@ public class TileController : MonoBehaviour
                 {
                     tiles[1 - 1].SetActive(true);
                     canLevelUp = true;
+                    StartCoroutine(LevelUpInTime());
                 }
                 break;
             case 4:
@@ -302,6 +306,15 @@ public class TileController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    IEnumerator LevelUpInTime()
+    {
+        yield return new WaitForSeconds(0.3f);
+        foreach (var go in tiles)
+        {
+            go.GetComponent<TileMovement>().MoveToShipCenter();
         }
     }
 

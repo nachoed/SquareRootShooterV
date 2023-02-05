@@ -10,6 +10,7 @@ public class TileMovement : MonoBehaviour
     //Transform tileStartPosition;
     Vector3 targetPosition;
     public float speed;
+    //public Collider2D collider2D;
 
     public void MoveToShipCenter()
     {
@@ -40,6 +41,30 @@ public class TileMovement : MonoBehaviour
         tileController.ReactivateTiles();
 
         yield break;
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Pick Up")
+    //    {
+    //        Destroy(collision.gameObject);
+    //        tileController.AddTileToShip();
+    //    }
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Pick Up")
+        {
+            Destroy(collision.gameObject);
+            tileController.AddTileToShip();
+        }
+
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Destroy(collision.gameObject);
+            this.gameObject.SetActive(false);
+        }
     }
 
 }

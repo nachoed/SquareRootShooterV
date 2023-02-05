@@ -10,6 +10,8 @@ public class ShipControls : MonoBehaviour
     public float forceAmount = 10.0f;
     float torquDirection = 0.0f;
     public float torqueAmount = 0.5f;
+    public float minClampRange;
+    public float maxClampRange;
 
 
     void Start()
@@ -41,7 +43,8 @@ public class ShipControls : MonoBehaviour
             torquDirection = 0;
         }
 
-
+        //WrapAroundBoundary();
+        ClampInBoundary();
     }
 
     private void FixedUpdate()
@@ -62,26 +65,34 @@ public class ShipControls : MonoBehaviour
         float x = transform.position.x;
         float y = transform.position.y;
 
-        if (x > 8f)
+        if (x > 62f)
         {
-            x = x - 16f;
+            x = x - 122f;
         }
 
-        if (x < -8f)
+        if (x < -62f)
         {
-            x = x + 16f;
+            x = x + 122f;
         }
 
-        if (y > 4.5f)
+        if (y > 62f)
         {
-            y = y - 9f;
+            y = y - 122f;
         }
 
-        if (y < -4.5f)
+        if (y < -62f)
         {
-            y = y + 9f;
+            y = y + 122f;
         }
 
         transform.position = new Vector2(x, y);
+    }
+
+    void ClampInBoundary()
+    {
+        Vector3 v3 = transform.position;
+        v3.x = Mathf.Clamp(v3.x, minClampRange, maxClampRange);
+        v3.y = Mathf.Clamp(v3.y, minClampRange, maxClampRange);
+        transform.position = v3;
     }
 }
