@@ -14,9 +14,42 @@ public class ObstacleController : MonoBehaviour
     RaycastHit2D raycastHitLeft;
     RaycastHit2D raycastHitRight;
 
+    public GameObject skinA;
+    public GameObject skinB;
+    public GameObject skinC;
+    public GameObject skinD;
+    public GameObject skinE;
+
     // Start is called before the first frame update
     void Start()
     {
+        int skinPicker = Random.Range(1, 5);
+
+        switch (skinPicker)
+        {
+            case 1:
+                skinA.SetActive(true);
+                break;
+
+            case 2:
+                skinB.SetActive(true);
+                break;
+
+            case 3:
+                skinC.SetActive(true);
+                break;
+
+            case 4:
+                skinD.SetActive(true);
+                break;
+
+            case 5:
+                skinE.SetActive(true);
+                break;
+            default:
+                break;
+        }
+
         shipGO = GameObject.FindGameObjectWithTag("Main Ship");
         StartCoroutine(EnemySplit());
     }
@@ -27,15 +60,17 @@ public class ObstacleController : MonoBehaviour
         if (Vector3.Distance(transform.position, shipGO.transform.position) < distance)
             transform.position = Vector3.MoveTowards(transform.position, shipGO.transform.position, speed * Time.deltaTime);
 
-        raycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, 4f);
-        raycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, 4f);
-        raycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, 4f);
-        raycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, 4f);
+        //raycastHitUp = Physics2D.Raycast(transform.position, Vector2.up, 4f);
+        //raycastHitDown = Physics2D.Raycast(transform.position, Vector2.down, 4f);
+        //raycastHitLeft = Physics2D.Raycast(transform.position, Vector2.left, 4f);
+        //raycastHitRight = Physics2D.Raycast(transform.position, Vector2.right, 4f);
 
-        if(raycastHitUp.collider.gameObject.tag == "Main Ship")
-        {
-            Debug.Log("HIT SOMETHING");
-        }
+        //if(raycastHitUp.collider.gameObject.tag == "Main Ship")
+        //{
+        //    Debug.Log("HIT SOMETHING");
+        //}
+
+        //Collider2D distanceCheck = Physics2D.OverlapCircle(transform.position, 4f,)
 
 
 
