@@ -17,7 +17,8 @@ public class TileMovement : MonoBehaviour
         //tileStartPosition = this.transform;
         targetPosition = shipTransform.position;
         //transform.Translate(shipTransform.position * Time.deltaTime, shipTransform);
-        StartCoroutine(MoveTilesOverTime());
+        if(this.gameObject.activeSelf)
+            StartCoroutine(MoveTilesOverTime());
     }
 
     IEnumerator MoveTilesOverTime()
@@ -29,13 +30,15 @@ public class TileMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
 
-        for (int i = 0; i < tileController.tiles.Count; i++)
-        {
-            //tileController.tiles[i].transform.position = tileStartPosition.position;
-            tileController.tiles[i].SetActive(false);
+        //for (int i = 0; i < tileController.tiles.Count; i++)
+        //{
+        //    //tileController.tiles[i].transform.position = tileStartPosition.position;
+        //    tileController.tiles[i].SetActive(false);
             
-        }
+        //}
         
+        tileController.ReactivateTiles();
+
         yield break;
     }
 
