@@ -84,9 +84,17 @@ public class ObstacleController : MonoBehaviour
 
     IEnumerator MoveAwayTimer(Vector3 v3)
     {
+        float duration = 4f; 
+        float normalizedTime = 0;
+        while (normalizedTime <= 1)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, v3, -1 * speed * Time.deltaTime);
+            yield return null;
+
+            normalizedTime += Time.deltaTime / duration;
+        }
+
         
-        yield return null;
-        transform.position = Vector3.MoveTowards(transform.position, v3, -1 * speed * Time.deltaTime);
         
     }
 
