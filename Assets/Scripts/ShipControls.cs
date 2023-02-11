@@ -25,9 +25,18 @@ public class ShipControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        forceOn = Input.GetKey(KeyCode.W);
+        //forceOn = Input.GetKey(KeyCode.W );
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            forceOn = true;
+        }
+        else
+        {
+            forceOn = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             audioSource.clip = thrust;
             audioSource.Play();
@@ -36,14 +45,14 @@ public class ShipControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             //transform.RotateAround(transform.position, new Vector3(0, 0, 1), 180.0f);
-            Debug.Log("CAN'T SLOW DOWN!!!");
+            //Debug.Log("CAN'T SLOW DOWN!!!");
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             torquDirection = 1f;
         } 
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             torquDirection = -1f;
         }

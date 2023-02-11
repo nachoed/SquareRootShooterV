@@ -19,7 +19,7 @@ public class TileMovement : MonoBehaviour
 
     public void MoveToShipCenter()
     {
-        Debug.Log("MoveToShipCenter");
+        //Debug.Log("MoveToShipCenter");
         //tileStartPosition = this.transform;
         targetPosition = shipTransform.position;
         //transform.Translate(shipTransform.position * Time.deltaTime, shipTransform);

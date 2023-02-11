@@ -20,6 +20,7 @@ public class ObstacleController : MonoBehaviour
     public GameObject skinD;
     public GameObject skinE;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,7 +103,7 @@ public class ObstacleController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(splitTimer);
+            yield return new WaitForSeconds(splitTimer + Random.Range(0.1f, 5.0f));
             Vector3 spawnPosition = transform.position;
             spawnPosition.y = transform.position.y + Random.Range(-1, +1);
             spawnPosition.x = transform.position.x + Random.Range(-1, +1);
@@ -110,5 +111,25 @@ public class ObstacleController : MonoBehaviour
             MoveAway(spawnPosition);
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Enter");
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("Destroy");
+            Destroy(collision);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("Stay");
+        if(collision.tag == "Obstacle")
+        {
+            Debug.Log("Destroy");
+            Destroy(collision);
+        }
     }
 }

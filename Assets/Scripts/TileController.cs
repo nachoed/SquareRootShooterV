@@ -358,7 +358,7 @@ public class TileController : MonoBehaviour
     public void ReactivateTiles()
     {
         canLevelUp = false;
-        Debug.Log("ReactivateTiles");
+        //Debug.Log("ReactivateTiles");
         levelCounter++;
 
         for (int i = 0; i < tiles.Count; i++)
