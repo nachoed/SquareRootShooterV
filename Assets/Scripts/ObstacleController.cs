@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
@@ -20,6 +21,8 @@ public class ObstacleController : MonoBehaviour
     public GameObject skinD;
     public GameObject skinE;
 
+    public GameObject redParticles;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,22 +33,42 @@ public class ObstacleController : MonoBehaviour
         {
             case 1:
                 skinA.SetActive(true);
+                skinB.SetActive(false);
+                skinC.SetActive(false);
+                skinD.SetActive(false);
+                skinE.SetActive(false);
                 break;
 
             case 2:
                 skinB.SetActive(true);
+                skinA.SetActive(false);
+                skinC.SetActive(false);
+                skinD.SetActive(false);
+                skinE.SetActive(false);
                 break;
 
             case 3:
                 skinC.SetActive(true);
+                skinB.SetActive(false);
+                skinA.SetActive(false);
+                skinD.SetActive(false);
+                skinE.SetActive(false);
                 break;
 
             case 4:
                 skinD.SetActive(true);
+                skinB.SetActive(false);
+                skinC.SetActive(false);
+                skinA.SetActive(false);
+                skinE.SetActive(false);
                 break;
 
             case 5:
                 skinE.SetActive(true);
+                skinB.SetActive(false);
+                skinC.SetActive(false);
+                skinD.SetActive(false);
+                skinA.SetActive(false);
                 break;
             default:
                 break;
@@ -108,28 +131,40 @@ public class ObstacleController : MonoBehaviour
             spawnPosition.y = transform.position.y + Random.Range(-1, +1);
             spawnPosition.x = transform.position.x + Random.Range(-1, +1);
             Instantiate(obstacle, spawnPosition, Quaternion.identity);
-            MoveAway(spawnPosition);
+            //MoveAway(spawnPosition);
         }
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    IEnumerator DestroyAfterParticles()
     {
-        Debug.Log("Enter");
-        if (collision.gameObject.tag == "Obstacle")
-        {
-            Debug.Log("Destroy");
-            Destroy(collision);
-        }
+        yield return null;
+        Destroy(this.gameObject);
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Debug.Log("Enter");
+    //    if (collision.gameObject.tag == "Obstacle")
+    //    {
+    //        Debug.Log("Destroy");
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Stay");
-        if(collision.tag == "Obstacle")
+        //Debug.Log("Stay");
+        if (collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Destroy");
-            Destroy(collision);
+            //Debug.Log("Tag = Obstacle");
+            if (Vector3.Distance(transform.position, collision.transform.position) < 0.25f)
+            {
+                //Debug.Log("Obstacle < .25");
+                Instantiate(redParticles, this.transform.position, Quaternion.identity);
+                StartCoroutine(DestroyAfterParticles());
+            }
+            //Destroy(collision.gameObject);
         }
     }
 }
