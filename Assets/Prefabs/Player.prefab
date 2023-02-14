@@ -115,7 +115,8 @@ MonoBehaviour:
   minClampRange: -120
   maxClampRange: 120
   audioSource: {fileID: 5238939955740516182}
-  thrust: {fileID: 8300000, guid: 55631e619486fca4b8f5b5e9598c15d9, type: 3}
+  thrustClip: {fileID: 8300000, guid: 55631e619486fca4b8f5b5e9598c15d9, type: 3}
+  thrustParticles: {fileID: 6171139584009061258}
 --- !u!50 &7146334419511379918
 Rigidbody2D:
   serializedVersion: 4
@@ -2619,7 +2620,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7826156063672423254}
-  - component: {fileID: 8815392356695634705}
   m_Layer: 0
   m_Name: Tiles Positions
   m_TagString: Untagged
@@ -2666,48 +2666,6 @@ Transform:
   m_Father: {fileID: 8237183396761132344}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8815392356695634705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4074700630933062094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd4a7dd56d15324fa6bdb91956d7aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 8404425704767980807}
-  - {fileID: 70075611229165792}
-  - {fileID: 8079106414160660848}
-  - {fileID: 3557180590544976721}
-  - {fileID: 5012844580592556548}
-  - {fileID: 1906254932660892698}
-  - {fileID: 8531470009732981804}
-  - {fileID: 476150607592192232}
-  - {fileID: 6879222087456921671}
-  - {fileID: 4418140091188667312}
-  - {fileID: 8480934775804237895}
-  - {fileID: 8695122604902310206}
-  - {fileID: 1298082545564049952}
-  - {fileID: 2887951060677147083}
-  - {fileID: 5665753072590383617}
-  - {fileID: 2308904837460499546}
-  - {fileID: 7008803128170883132}
-  - {fileID: 3539575475113572956}
-  - {fileID: 3418102819797560592}
-  - {fileID: 8725632398253411600}
-  - {fileID: 5206202592007215151}
-  - {fileID: 5150338004637631378}
-  - {fileID: 128221227317086846}
-  - {fileID: 5156417861293623914}
-  - {fileID: 7307607171639372887}
-  tilePositions: []
-  audioSource: {fileID: 0}
-  collectTile: {fileID: 0}
-  collapseShip: {fileID: 0}
 --- !u!1 &4384192632749380302
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,6 +5199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91c7209431f5444d89298a9421b81e6, type: 3}
+--- !u!1 &6171139584009061258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6359430837301340461, guid: b91c7209431f5444d89298a9421b81e6, type: 3}
+  m_PrefabInstance: {fileID: 1001336674551376551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6171139584009061259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6359430837301340460, guid: b91c7209431f5444d89298a9421b81e6, type: 3}

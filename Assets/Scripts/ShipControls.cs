@@ -14,7 +14,8 @@ public class ShipControls : MonoBehaviour
     public float minClampRange;
     public float maxClampRange;
     public AudioSource audioSource;
-    public AudioClip thrust;
+    public AudioClip thrustClip;
+    public GameObject thrustParticles;
 
 
     void Start()
@@ -30,15 +31,19 @@ public class ShipControls : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             forceOn = true;
+            if(!thrustParticles.activeSelf)
+                thrustParticles.SetActive(true);
         }
         else
         {
             forceOn = false;
+            if (thrustParticles.activeSelf)
+                thrustParticles.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            audioSource.clip = thrust;
+            audioSource.clip = thrustClip;
             audioSource.Play();
         }
 
